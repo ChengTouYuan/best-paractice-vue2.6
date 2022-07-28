@@ -31,27 +31,10 @@ export default {
        capAmountToString:Pipe.capAmountToString
       },
   created() {
-    // HTTP("get", "http://192.168.0.74:9000/readsselection/cnrs/taskStatus/").then((res) => {
-    //   console.log(res, "res");
-    // });
+    HTTP("get", "/api/xxxxxx").then((res) => {
+      console.log(res, "res");
+    });
 
-  HTTP("get", "/raws/signals/",{
-    folder: `20220728081803_LAB256V2_5K_PC28_30_B16_ET1-51-HD53-J4-A_AD3_Bacillus_subtilis_ZhangMeng_Mux`,
-channel: `channel2`,
-start: `288745`,
-end: `384562`}).then((res) => {
-      console.log(res, "res");
-    });
-setTimeout(()=>{
-    HTTP("get", "/raws/signals/",{
-    folder: `20220728081803_LAB256V2_5K_PC28_30_B16_ET1-51-HD53-J4-A_AD3_Bacillus_subtilis_ZhangMeng_Mux`,
-channel: `channel2`,
-start: `288745`,
-end: `384562`,
-headers:{showLoading:false}}).then((res) => {
-      console.log(res, "res");
-    });
-},3000)
 
     let source=[1,2,3,4]
     
