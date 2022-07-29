@@ -89,6 +89,13 @@ server.interceptors.request.use(
     }
   },
   (error) => {
+    needLoadingRequestCount--;
+    needLoadingRequestCount = Math.max(needLoadingRequestCount, 0);
+    Tools.debounce(()=>{
+      if(needLoadingRequestCount==0){
+        loadingInstance.close();
+      }
+    },300);//防抖
     // 立即执行响应的reject方法
     return Promise.reject(error); 
   }
